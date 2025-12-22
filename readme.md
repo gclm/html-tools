@@ -8,7 +8,7 @@
 
 **开源 HTML 工具集 - 轻量、隐私、无需安装**
 
-[在线体验](https://justhtmls.com/) | [贡献指南](CONTRIBUTING.html) | [提交工具](https://github.com/justhtmls/justhtmls.com/issues/new?template=tool-submission.md)
+[在线体验](https://htmls.dev/) | [贡献指南](CONTRIBUTING.html) | [提交工具](https://github.com/justhtmls/justhtmls.com/issues/new?template=tool-submission.md)
 
 </div>
 
@@ -46,7 +46,7 @@ JustHTMLs 是一个开源的 HTML 工具集平台，汇集各种轻量级的在�
 
 ### 在线使用
 
-直接访问 [JustHTMLs 网站](https://justhtmls.com/) 即可使用所有工具。
+直接访问 [JustHTMLs 网站](https://htmls.dev/) 即可使用所有工具。
 
 ### 本地运行
 
