@@ -381,6 +381,8 @@
 </head>
 <body>
 ${html}
+    
+    <script src="/assets/clicks.js" defer></script>
 </body>
 </html>`;
 
@@ -497,5 +499,27 @@ function hello() {
         // 初始化
         loadExample();
     </script>
+    <script data-click-tracker>
+        (function() {
+            const parts = location.pathname.split('/').filter(Boolean);
+            const toolsIndex = parts.indexOf('tools');
+            if (toolsIndex === -1 || !parts[toolsIndex + 1]) {
+                return;
+            }
+            const toolId = parts[toolsIndex + 1];
+            const payload = JSON.stringify({ id: toolId });
+            if (navigator.sendBeacon) {
+                navigator.sendBeacon('/api/clicks', new Blob([payload], { type: 'application/json' }));
+                return;
+            }
+            fetch('/api/clicks', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: payload,
+                keepalive: true
+            });
+        })();
+    </script>
+    <script src="/assets/clicks.js" defer></script>
 </body>
 </html>

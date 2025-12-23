@@ -387,6 +387,28 @@
             justify-content: space-between;
         }
 
+        .tool-clicks {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .tool-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-clicks span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
         .tool-tags {
             display: flex;
             gap: 6px;
@@ -561,6 +583,14 @@
                         <div class="stat-label">分类数量</div>
                     </div>
                     <div class="stat-item">
+                        <div class="stat-value" id="home-day-count">--/--</div>
+                        <div class="stat-label">今日 PV/UV</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="home-total-count">--/--</div>
+                        <div class="stat-label">总 PV/UV</div>
+                    </div>
+                    <div class="stat-item">
                         <div class="stat-value">100%</div>
                         <div class="stat-label">开源免费</div>
                     </div>
@@ -655,6 +685,7 @@
         let currentCategory = 'all';
         let searchQuery = '';
         let sortOption = 'updated-desc';
+        let clickStats = {};
 
         async function loadTools() {
             try {
@@ -664,6 +695,7 @@
                 renderCategories();
                 renderTools();
                 updateStats();
+                loadClickStats();
             } catch (error) {
                 console.error('Failed to load tools:', error);
                 document.getElementById('tools-grid').innerHTML = `
@@ -743,6 +775,7 @@
             container.innerHTML = filteredTools.map(tool => {
                 const category = toolsData.categories.find(c => c.id === tool.category);
                 const updatedAt = tool.updatedAt || tool.createdAt || '未知';
+                const stats = clickStats[tool.id];
                 return `
                     <a href="${tool.detail}" class="tool-card" style="--tool-color: ${tool.color}">
                         ${tool.featured ? '<span class="featured-badge">精选</span>' : ''}
@@ -761,11 +794,61 @@
                             <div class="tool-tags">
                                 ${tool.tags.slice(0, 3).map(tag => `<span class="tool-tag">${tag}</span>`).join('')}
                             </div>
-                            <i class="fas fa-arrow-right tool-arrow"></i>
+                            <div class="tool-meta">
+                                <div class="tool-clicks">
+                                    <span><i class="far fa-chart-bar"></i> 今日 PV/UV ${formatPair(stats?.pv?.day, stats?.uv?.day)}</span>
+                                    <span><i class="far fa-eye"></i> 总 PV/UV ${formatPair(stats?.pv?.total, stats?.uv?.total)}</span>
+                                </div>
+                                <i class="fas fa-arrow-right tool-arrow"></i>
+                            </div>
                         </div>
                     </a>
                 `;
             }).join('');
+        }
+
+        function formatCount(value) {
+            if (typeof value !== 'number') {
+                return '--';
+            }
+            return value.toLocaleString('zh-CN');
+        }
+
+        function formatPair(pv, uv) {
+            return `${formatCount(pv)}/${formatCount(uv)}`;
+        }
+
+        async function loadClickStats() {
+            try {
+                const ids = toolsData.tools.map(tool => tool.id).join(',');
+                const response = await fetch(`/api/clicks?ids=${encodeURIComponent(ids)}`);
+                if (!response.ok) {
+                    return;
+                }
+                const data = await response.json();
+                clickStats = data.counts || {};
+                renderTools();
+            } catch (error) {
+                console.warn('Failed to load click counts', error);
+            }
+        }
+
+        async function loadHomeStats() {
+            try {
+                const response = await fetch('/api/clicks?ids=home');
+                if (!response.ok) {
+                    return;
+                }
+                const data = await response.json();
+                const stats = data.counts?.home;
+                if (!stats) {
+                    return;
+                }
+                document.getElementById('home-day-count').textContent = formatPair(stats.pv?.day, stats.uv?.day);
+                document.getElementById('home-total-count').textContent = formatPair(stats.pv?.total, stats.uv?.total);
+            } catch (error) {
+                console.warn('Failed to load home stats', error);
+            }
         }
 
 
@@ -781,7 +864,9 @@
         });
 
         // Initialize
+        loadHomeStats();
         loadTools();
     </script>
+    <script src="/assets/clicks.js" defer></script>
 </body>
 </html>
