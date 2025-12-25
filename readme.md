@@ -45,6 +45,135 @@ JustHTMLs 是一个开源的 HTML 工具集平台，汇集各种轻量级的在�
 
 ---
 
+## 工具清单
+
+### 格式转换
+- Base32 编码
+- Base32 解码
+- Base36 编码
+- Base36 解码
+- Base58 编码
+- Base58 解码
+- Base64 URL 安全编码
+- Base64 URL 安全解码
+- Base64 编码解码
+- CSV 转 JSON
+- CSV 转 TSV
+- CSV 转 YAML
+- HEX 编码
+- HEX 解码
+- HTML 实体编码/解码
+- JSON 字符串转义
+- JSON 格式化工具
+- JSON 转 CSV
+- JSON 转 TSV
+- JSON 转 XML
+- JSON 转 YAML
+- JSONL 转换器
+- TSV 转 CSV
+- TSV 转 JSON
+- URL 编码解码
+- Unix 时间戳转换
+- XML 转 JSON
+- XML 转 YAML
+- YAML 转 CSV
+- YAML 转 JSON
+- YAML 转 XML
+- YAML 验证器
+- 进制转换工具
+
+### 开发者工具
+- CSS 压缩/格式化工具
+- Cron 表达式生成器
+- Gitignore 生成器
+- HTML 压缩器
+- HTML 格式化工具
+- HTTP 状态码查询
+- JSON 压缩器
+- JSON 键名排序
+- JWT 生成器
+- JWT 解码器
+- JavaScript 压缩器
+- JavaScript 格式化工具
+- Meta 标签生成器
+- NanoID 生成器
+- Robots.txt 生成器
+- SQL 压缩器
+- SQL 格式化工具
+- Sitemap 生成器
+- ULID 生成器
+- URL 参数生成器
+- URL 解析器
+- UUID 生成器
+- XML 压缩器
+- XML 格式化工具
+- YAML 压缩器
+- YAML 格式化工具
+- 哈希生成器
+- 正则表达式测试器
+- 渐变色生成器
+- 颜色对比度检测
+- 颜色选择器
+
+### 文本处理
+- Emoji 清理器
+- HTML 转 Markdown
+- HTML 转纯文本
+- JSON 转 Markdown 表格
+- Lorem Ipsum 生成器
+- Markdown 表格生成器
+- Markdown 转 HTML
+- Markdown 转纯文本
+- ROT13 编码
+- URL Slug 生成器
+- Unicode 反转义
+- Unicode 转义
+- 二进制转文本
+- 凯撒密码
+- 大小写转换工具
+- 字数统计工具
+- 摩斯电码编码
+- 摩斯电码解码
+- 文本分割器
+- 文本去重工具
+- 文本反转工具
+- 文本合并器
+- 文本对比工具
+- 文本换行器
+- 文本排序工具
+- 文本查找替换
+- 文本清理器
+- 文本缩进工具
+- 文本转 HTML
+- 文本转二进制
+- 行号添加器
+- 行尾符转换器
+
+### 图片处理
+- 图片加水印
+- 图片压缩工具
+- 图片尺寸调整
+- 图片拼接
+- 图片旋转翻转
+- 图片滤镜
+- 图片裁剪
+- 图片转 Base64
+- 图片转 WebP
+
+### 实用工具
+- BMI 计算器
+- 二维码生成器
+- 单位换算器
+- 字节大小转换器
+- 安全密码生成器
+- 密码强度检测
+- 日期差值计算器
+- 百分比计算器
+- 随机抽取器
+- 随机数生成器
+
+---
+
 ## 快速开始
 
 ### 在线使用
