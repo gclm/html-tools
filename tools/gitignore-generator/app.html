@@ -185,9 +185,7 @@ Desktop.ini
             function generateGitignore() {
                 const selected = Array.from(document.querySelectorAll('.checkbox-group input:checked'))
                     .map(input => input.value);
-                const output = selected.map(key => `# ${key}
-` + GITIGNORE_TEMPLATES[key]).join('
-');
+                const output = selected.map(key => `# ${key}\n` + GITIGNORE_TEMPLATES[key]).join('\n\n');
                 document.getElementById('gitignore-output').value = output.trim();
             }
 
