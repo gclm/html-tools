@@ -20,7 +20,6 @@
     <meta property="twitter:description" content="JustHTMLs 是一个开源的 HTML 工具集平台，汇集各种轻量级的在线工具，无需安装，即开即用。">
     
     <link rel="icon" href="/favicon.svg">
-    <link rel="manifest" href="/manifest.json">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -910,14 +909,6 @@
         loadHomeStats();
         loadTools();
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker
-                    .register('/service-worker.js', { updateViaCache: 'none' })
-                    .then((registration) => registration.update())
-                    .catch(() => {});
-            });
-        }
     </script>
     <script src="/assets/clicks.js" defer></script>
 </body>
