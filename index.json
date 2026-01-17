@@ -3077,6 +3077,56 @@
       "updatedAt": "2026-01-02",
       "featured": true,
       "repo": "https://github.com/justhtmls/html-tools"
+    },
+    {
+      "id": "qr-decoder",
+      "name": "二维码解码器",
+      "slug": "qr-decoder",
+      "category": "utility",
+      "tags": [
+        "qrcode",
+        "decoder",
+        "scanner",
+        "utility"
+      ],
+      "author": "JustHTMLs",
+      "authorUrl": "https://github.com/justhtmls",
+      "version": "1.0.0",
+      "description": "上传二维码图片，快速解析其中的内容",
+      "longDescription": "二维码解码器可以将二维码图片解析为文本内容，支持上传本地图片或拖拽图片，快速提取二维码中的信息，如网址、文本、联系方式等。",
+      "icon": "🔍",
+      "color": "#8b5cf6",
+      "entry": "tools/qr-decoder/app.html",
+      "detail": "tools/qr-decoder/index.html",
+      "createdAt": "2026-01-02",
+      "updatedAt": "2026-01-02",
+      "featured": false,
+      "repo": "https://github.com/justhtmls/html-tools"
+    },
+    {
+      "id": "ip-info",
+      "name": "IP 地址信息查询",
+      "slug": "ip-info",
+      "category": "developer",
+      "tags": [
+        "ip",
+        "network",
+        "geolocation",
+        "utility"
+      ],
+      "author": "JustHTMLs",
+      "authorUrl": "https://github.com/justhtmls",
+      "version": "1.0.0",
+      "description": "快速查询 IP 地址的地理位置、ISP 等信息",
+      "longDescription": "IP 地址信息查询工具可以快速查询 IP 地址的详细信息，包括地理位置、时区、ISP、货币等信息。支持查询本机 IP 和指定 IP 地址。",
+      "icon": "🌐",
+      "color": "#06b6d4",
+      "entry": "tools/ip-info/app.html",
+      "detail": "tools/ip-info/index.html",
+      "createdAt": "2026-01-02",
+      "updatedAt": "2026-01-02",
+      "featured": false,
+      "repo": "https://github.com/justhtmls/html-tools"
     }
   ],
   "categories": [
